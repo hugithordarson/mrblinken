@@ -1,4 +1,4 @@
-package lidamot.lights.components;
+package app;
 
 import main.Audio;
 import main.shelly.ShellyClient;

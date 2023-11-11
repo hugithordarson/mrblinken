@@ -1,4 +1,4 @@
-package lidamot.lights.components;
+package app;
 
 import ng.appserver.NGComponent;
 import ng.appserver.NGContext;

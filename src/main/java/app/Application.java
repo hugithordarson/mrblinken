@@ -1,6 +1,5 @@
 package app;
 
-import lidamot.lights.components.LMLightsPage;
 import ng.appserver.NGApplication;
 
 public class Application extends NGApplication {
