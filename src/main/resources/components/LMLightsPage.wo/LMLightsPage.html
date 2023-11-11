@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Ljósin í borginni</title>
+		<meta charset="utf-8">
+		<style>
+			body {
+				background-color: black;
+				text-align: center;
+			}
+			
+			a {
+				display: inline-block;
+				color:white;
+				text-decoration: none;
+				font-size: 50px;
+				border: 1px solid gray;
+				padding: 20px;
+				background-color: rgba( 50,50,50,0.6);
+				border-radius: 10px;
+				margin: 20px;
+			}
+
+			input[type=text] {
+				margin: 2px;
+				padding: 2px;
+				width: 200px;
+				border:none; 
+				color: white;
+				font-size: 80px;
+				font-weight: bold;
+				background-color: black;
+				text-align: center;
+			}
+			
+			textarea:focus, input:focus{
+				outline: none;
+				background-color: rgba( 50,50,50,0.9);
+			}
+
+			::selection, input:active {
+			}
+		</style>
+	</head>
+	<body>
+		<wo:form>
+			<wo:AjaxObserveField action="$shellyChanged">
+				<h3>Borði</h3>
+				<p>
+					<wo:LField value="$redShelly" style="color: red" />
+					<wo:LField value="$greenShelly" style="color: green" />
+					<wo:LField value="$blueShelly" style="color: blue" />
+					<wo:LField value="$whiteShelly" style="color: white" />
+				</p>
+			</wo:AjaxObserveField>
+		</wo:form>
+		<wo:AjaxUpdateLink action="$lightningShelly">⚡🎞️</wo:AjaxUpdateLink>
+		<wo:AjaxUpdateLink action="$lightningIkea">⚡💡</wo:AjaxUpdateLink>
+		<wo:AjaxUpdateLink action="$resetIkea">☀️💡</wo:AjaxUpdateLink>
+	</body>
+</html>
