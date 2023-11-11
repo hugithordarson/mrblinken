@@ -44,7 +44,7 @@
 		<wo:script filename="ng-js.js" />
 	</head>
 	<body>
-		<wo:form action="$shellyChanged">
+		<wo:form action="$shellyChanged" id="myForm">
 			<wo:AjaxObserveField action="$shellyChanged">
 				<h3>Borði</h3>
 				<p>
@@ -61,12 +61,15 @@
 		<script>
 			const list = document.getElementsByTagName("input"); 
 
+			var form = document.getElementById('myForm');
+
 			for( i in list ) {
 				const item = list[i];
 				item.onchange = function() {
-					item.form.submit();
+					// item.form.submit();
+					performSubmit(form);
 				};
-			}
+			} 
 		</script>
 	</body>
 </html>
