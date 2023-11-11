@@ -61,13 +61,10 @@
 		<script>
 			const list = document.getElementsByTagName("input"); 
 
-			var form = document.getElementById('myForm');
-
 			for( i in list ) {
 				const item = list[i];
 				item.onchange = function() {
-//					item.form.submit();
-					performSubmit(form);
+					performSubmit(item.form);
 				};
 			}
 		</script>
