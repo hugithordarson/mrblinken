@@ -1,25 +1,24 @@
 package lidamot.lights.components;
 
-import com.webobjects.appserver.WOActionResults;
-import com.webobjects.appserver.WOContext;
-
-import er.extensions.components.ERXComponent;
 import main.Audio;
 import main.shelly.ShellyClient;
 import main.shelly.ShellyPlayground;
 import main.shelly.ShellyStatus;
 import main.tradfri.TradfriClient;
 import main.tradfri.TradfriPlayground;
+import ng.appserver.NGActionResults;
+import ng.appserver.NGComponent;
+import ng.appserver.NGContext;
 import nl.stijngroenen.tradfri.device.Light;
 
-public class LMLightsPage extends ERXComponent {
+public class LMLightsPage extends NGComponent {
 
 	public int redShelly;
 	public int greenShelly;
 	public int blueShelly;
 	public int whiteShelly;
 
-	public LMLightsPage( WOContext context ) {
+	public LMLightsPage( NGContext context ) {
 		super( context );
 		ShellyStatus status = ShellyClient.defaultClient().readStatus();
 		redShelly = status.red;
@@ -28,24 +27,24 @@ public class LMLightsPage extends ERXComponent {
 		whiteShelly = status.white;
 	}
 
-	public WOActionResults shellyChanged() {
+	public NGActionResults shellyChanged() {
 		ShellyClient.defaultClient().setColor( redShelly, greenShelly, blueShelly, whiteShelly );
 		return null;
 	}
 
-	public WOActionResults ikeaChanged() {
+	public NGActionResults ikeaChanged() {
 		ShellyClient.defaultClient().setColor( redShelly, greenShelly, blueShelly, whiteShelly );
 		return null;
 	}
 
-	public WOActionResults lightningShelly() {
+	public NGActionResults lightningShelly() {
 		Audio.playThunderclap();
 		ShellyPlayground.generateLightningBolt();
 		ShellyClient.defaultClient().setColor( redShelly, greenShelly, blueShelly, whiteShelly );
 		return null;
 	}
 
-	public WOActionResults lightningIkea() {
+	public NGActionResults lightningIkea() {
 		for( Light light : TradfriClient.defaultClient().lights() ) {
 			new Thread( () -> {
 				TradfriPlayground.triggerLightningAndSound( light );
@@ -55,7 +54,7 @@ public class LMLightsPage extends ERXComponent {
 		return null;
 	}
 
-	public WOActionResults resetIkea() {
+	public NGActionResults resetIkea() {
 		for( Light light : TradfriClient.defaultClient().lights() ) {
 			new Thread( () -> {
 				TradfriPlayground.resetLightToWarmWhite( light );

@@ -1,17 +1,25 @@
 package lidamot.lights.components;
 
-import com.webobjects.appserver.WOContext;
+import ng.appserver.NGComponent;
+import ng.appserver.NGContext;
 
-import er.extensions.components.ERXStatelessComponent;
+/**
+ * This component should be stateless
+ */
 
-public class LField extends ERXStatelessComponent {
+public class LField extends NGComponent {
 
-	public LField( WOContext context ) {
+	public LField( NGContext context ) {
 		super( context );
 	}
 
+	@Override
+	public boolean synchronizesVariablesWithBindings() {
+		return false;
+	}
+
 	public String value() {
-		return stringValueForBinding( "value" ).toString();
+		return valueForBinding( "value" ).toString();
 	}
 
 	public void setValue( String value ) {
