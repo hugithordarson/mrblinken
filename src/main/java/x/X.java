@@ -70,11 +70,22 @@ public class X {
 					.build();
 
 			final String url = "https://172.16.1.78:8443/v1/devices/cb3ffb1b-1973-46f5-8a6f-21aa8ec1329c_1";
-			final String jsonString = """
+			final String jsonStringOnOff = """
 					[
 						{
 							"attributes": {
 								"isOn": true
+							}
+						}
+					]
+					""";
+
+			final String jsonString = """
+					[
+						{
+							"transitionTime":"0",
+							"attributes": {
+								"lightLevel": 1
 							}
 						}
 					]
