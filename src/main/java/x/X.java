@@ -86,7 +86,8 @@ public class X {
 					.send(
 							HttpRequest
 									.newBuilder( URI.create( url ) )
-									.header( "Authorization", "Bearer " + "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImRhYjZmNTIzZTNiOTE5OTNhMDdmNWFkMjRiYWYyZWQ2MjYxOTZkNWZjNzgyN2YyNzcyZWQ2ZWIyMDczNTgzMGYifQ.eyJpc3MiOiIzYTIwOTkxMi0yN2QwLTQwYzgtYTQyYi03OTU0MTE5ZGUzOTciLCJ0eXBlIjoiYWNjZXNzIiwiYXVkIjoiaG9tZXNtYXJ0LmxvY2FsIiwic3ViIjoiMGE2MzE0YTctYTgzZi00MTgwLTk5MDUtNzliMWNjZmM5YjJhIiwiaWF0IjoxNzMwMTg4NTM1LCJleHAiOjIwNDU3NjQ1MzV9.Cg0jTUX_o7f0nbbJ8bMD4aRF1SaXPrExhc87a-6puO62jP4pg79ny0GFvpH5CM-GO0rgWgW-am0pvElDNRo8Dw" )
+									.setHeader( "content-type", "application/json" )
+									.setHeader( "Authorization", "Bearer " + "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImRhYjZmNTIzZTNiOTE5OTNhMDdmNWFkMjRiYWYyZWQ2MjYxOTZkNWZjNzgyN2YyNzcyZWQ2ZWIyMDczNTgzMGYifQ.eyJpc3MiOiIzYTIwOTkxMi0yN2QwLTQwYzgtYTQyYi03OTU0MTE5ZGUzOTciLCJ0eXBlIjoiYWNjZXNzIiwiYXVkIjoiaG9tZXNtYXJ0LmxvY2FsIiwic3ViIjoiMGE2MzE0YTctYTgzZi00MTgwLTk5MDUtNzliMWNjZmM5YjJhIiwiaWF0IjoxNzMwMTg4NTM1LCJleHAiOjIwNDU3NjQ1MzV9.Cg0jTUX_o7f0nbbJ8bMD4aRF1SaXPrExhc87a-6puO62jP4pg79ny0GFvpH5CM-GO0rgWgW-am0pvElDNRo8Dw" )
 									.method( "PATCH", BodyPublishers.ofString( jsonString ) )
 									.build(),
 							BodyHandlers.ofString() );
