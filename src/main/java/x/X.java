@@ -74,7 +74,7 @@ public class X {
 					[
 						{
 							"attributes": {
-								"isOn": true;
+								"isOn": true
 							}
 						}
 					]
