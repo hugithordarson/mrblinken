@@ -1,6 +1,7 @@
 package app;
 
 import main.Audio;
+import main.Util;
 import main.shelly.ShellyClient;
 import main.shelly.ShellyPlayground;
 import main.shelly.ShellyStatus;
@@ -40,6 +41,22 @@ public class LMLightsPage extends NGComponent {
 	public NGActionResults lightningShelly() {
 		Audio.playThunderclap();
 		ShellyPlayground.generateLightningBolt();
+		ShellyClient.defaultClient().setColor( redShelly, greenShelly, blueShelly, whiteShelly );
+		return null;
+	}
+
+	public NGActionResults lightningShellyTimed() throws InterruptedException {
+		int numberOfLightnings = 1000;
+
+		while( numberOfLightnings > 0 ) {
+			int wait = Util.generateRandom( 30 * 1000, 120 * 1000 );
+			System.out.println( "Doing lightning %s, sleeping for %sms ".formatted( numberOfLightnings, wait ) );
+			Thread.sleep( wait );
+			Audio.playThunderclap();
+			ShellyPlayground.generateLightningBolt();
+			numberOfLightnings--;
+		}
+
 		ShellyClient.defaultClient().setColor( redShelly, greenShelly, blueShelly, whiteShelly );
 		return null;
 	}
