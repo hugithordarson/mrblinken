@@ -8,8 +8,8 @@ import main.shelly.ShellyStatus;
 import main.tradfri.TradfriClient;
 import main.tradfri.TradfriPlayground;
 import ng.appserver.NGActionResults;
-import ng.appserver.NGComponent;
 import ng.appserver.NGContext;
+import ng.appserver.templating.NGComponent;
 import nl.stijngroenen.tradfri.device.Light;
 
 public class LMLightsPage extends NGComponent {

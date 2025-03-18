@@ -1,7 +1,7 @@
 package app;
 
-import ng.appserver.NGComponent;
 import ng.appserver.NGContext;
+import ng.appserver.templating.NGComponent;
 
 /**
  * This component should be stateless
