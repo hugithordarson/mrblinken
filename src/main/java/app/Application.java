@@ -15,7 +15,7 @@ public class Application extends NGApplication {
 		routeTable().map( "/favicon.ico", ( request ) -> {
 			return new NGResponse();
 		} );
-		routeTable().mapComponent( "/lights", LMLightsPage.class );
+		routeTable().map( "/lights", LMLightsPage.class );
 	}
 
 	@Override
