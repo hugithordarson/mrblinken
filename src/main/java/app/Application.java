@@ -4,6 +4,7 @@ import ng.appserver.NGActionResults;
 import ng.appserver.NGApplication;
 import ng.appserver.NGRequest;
 import ng.appserver.NGResponse;
+import ng.plugins.Routes;
 
 public class Application extends NGApplication {
 
@@ -11,11 +12,14 @@ public class Application extends NGApplication {
 		NGApplication.run( args, Application.class );
 	}
 
-	public Application() {
-		routeTable().map( "/favicon.ico", ( request ) -> {
-			return new NGResponse();
-		} );
-		routeTable().map( "/lights", LMLightsPage.class );
+	@Override
+	public Routes routes() {
+		return Routes
+				.create()
+				.map( "/favicon.ico", ( request ) -> {
+					return new NGResponse();
+				} )
+				.map( "/lights", LMLightsPage.class );
 	}
 
 	@Override
