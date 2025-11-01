@@ -33,8 +33,11 @@ public class LMLightsPage extends NGComponent {
 		return null;
 	}
 
-	public NGActionResults ikeaChanged() {
-		ShellyClient.defaultClient().setColor( redShelly, greenShelly, blueShelly, whiteShelly );
+	public NGActionResults halloween() {
+		new Thread( () -> {
+			Halloween2023.main( null );
+		} ).start();
+
 		return null;
 	}
 
