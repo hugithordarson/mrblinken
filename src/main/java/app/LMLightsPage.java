@@ -22,14 +22,16 @@ public class LMLightsPage extends NGComponent {
 	public LMLightsPage( NGContext context ) {
 		super( context );
 		ShellyStatus status = ShellyClient.defaultClient().readStatus();
-		redShelly = status.red;
-		greenShelly = status.green;
-		blueShelly = status.blue;
-		whiteShelly = status.white;
+		//		ShellyStatus status = new ShellyStatus( 10, 20, 30, 40 );
+		redShelly = status.red();
+		greenShelly = status.green();
+		blueShelly = status.blue();
+		whiteShelly = status.white();
 	}
 
 	public NGActionResults shellyChanged() {
 		ShellyClient.defaultClient().setColor( redShelly, greenShelly, blueShelly, whiteShelly );
+		//		System.out.println( redShelly + " : " + greenShelly + " : " + blueShelly + " : " + whiteShelly );
 		return null;
 	}
 
