@@ -3,6 +3,7 @@ package app;
 import ng.appserver.NGActionResults;
 import ng.appserver.NGApplication;
 import ng.appserver.NGRequest;
+import ng.appserver.NGRespBuilder;
 import ng.appserver.NGResponse;
 import ng.plugins.Routes;
 
@@ -17,7 +18,7 @@ public class Application extends NGApplication {
 		return Routes
 				.create()
 				.map( "/favicon.ico", ( request ) -> {
-					return new NGResponse();
+					return NGRespBuilder.of();
 				} )
 				.map( "/lights", LMLightsPage.class );
 	}
@@ -28,7 +29,7 @@ public class Application extends NGApplication {
 	}
 
 	public static NGResponse redirectTemporary( final String targetURL ) {
-		final NGResponse response = new NGResponse();
+		final NGResponse response = NGRespBuilder.of();
 
 		response.setHeader( "location", targetURL );
 		response.setStatus( 302 );
