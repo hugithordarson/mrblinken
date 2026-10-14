@@ -7,6 +7,9 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<name>MrBlinken</name>
 	<packaging>woapplication</packaging>
+	<properties>
+		<ng.version>0.1.5</ng.version>
+	</properties>
 	<build>
 		<plugins>
 			<plugin>
@@ -29,17 +32,17 @@
 		<dependency>
 			<groupId>is.rebbi.ng</groupId>
 			<artifactId>ng-appserver</artifactId>
-			<version>0.1.4-SNAPSHOT</version>
+			<version>${ng.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>is.rebbi.ng</groupId>
 			<artifactId>ng-adaptor-jetty</artifactId>
-			<version>0.1.4-SNAPSHOT</version>
+			<version>${ng.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>is.rebbi.ng</groupId>
 			<artifactId>ng-control</artifactId>
-			<version>0.1.4-SNAPSHOT</version>
+			<version>${ng.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
