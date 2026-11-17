@@ -8,7 +8,7 @@
 	<name>MrBlinken</name>
 	<packaging>woapplication</packaging>
 	<properties>
-		<ng.version>0.1.6</ng.version>
+		<ng.version>0.1.7</ng.version>
 	</properties>
 	<build>
 		<plugins>
@@ -53,16 +53,6 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
 			<version>2.0.6</version>
-		</dependency>
-		<dependency>
-			<groupId>is.revvi</groupId>
-			<artifactId>ikea-tradfri-playground</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>de.dvdgeisler.iot.dirigera</groupId>
-			<artifactId>dirigera-client-api</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>

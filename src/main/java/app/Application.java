@@ -1,5 +1,7 @@
 package app;
 
+import java.util.concurrent.TimeUnit;
+
 import ng.appserver.NGActionResults;
 import ng.appserver.NGApplication;
 import ng.appserver.http.NGRequest;
@@ -10,6 +12,16 @@ import ng.plugins.Routes;
 public class Application extends NGApplication {
 
 	public static void main( String[] args ) {
+		// Stop a running storm on shutdown, so the strip and its fade setting are restored
+		Runtime.getRuntime().addShutdownHook( new Thread( () -> {
+			try {
+				Lightning.defaultLightning().stopStorm().get( 5, TimeUnit.SECONDS );
+			}
+			catch( Exception e ) {
+				// Nothing to do, we're going down anyway
+			}
+		} ) );
+
 		NGApplication.run( args, Application.class );
 	}
 

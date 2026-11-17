@@ -38,27 +38,43 @@
 				background-color: rgba( 50,50,50,0.9);
 			}
 
-			::selection, input:active {
+			h3 {
+				color: gray;
+			}
+
+			.error {
+				color: orange;
+				font-size: 30px;
 			}
 		</style>
-		<wo:script framework="ng" filename="ng-js.js" />
+		<wo:script namespace="ng" filename="ng-js.js" />
 	</head>
 	<body>
-		<wo:form action="$shellyChanged">
-			<wo:AjaxObserveField action="$shellyChanged">
+		<wo:if condition="$errorMessage">
+			<p class="error"><wo:str value="$errorMessage" /></p>
+		</wo:if>
+		<wo:form action="$colorChanged">
+			<wo:AjaxObserveField action="$colorChanged">
 				<h3>Borði</h3>
 				<p>
-					<wo:LField value="$redShelly" style="color: red" />
-					<wo:LField value="$greenShelly" style="color: green" />
-					<wo:LField value="$blueShelly" style="color: blue" />
-					<wo:LField value="$whiteShelly" style="color: white" />
+					<wo:LField value="$red" style="color: red" />
+					<wo:LField value="$green" style="color: green" />
+					<wo:LField value="$blue" style="color: blue" />
+					<wo:LField value="$white" style="color: white" />
+					<wo:LField value="$brightness" style="color: gray" />
 				</p>
 			</wo:AjaxObserveField>
 		</wo:form>
-		<wo:AjaxUpdateLink action="$lightningShellyTimed">⚡⏰️</wo:AjaxUpdateLink>
-		<wo:AjaxUpdateLink action="$lightningShelly">⚡🎞️</wo:AjaxUpdateLink>
-		<wo:AjaxUpdateLink action="$lightningIkea">⚡💡</wo:AjaxUpdateLink>
-		<wo:AjaxUpdateLink action="$resetIkea">☀️💡</wo:AjaxUpdateLink>
-		<wo:link action="$halloween">🎃</wo:link>
+		<wo:form action="$intervalChanged">
+			<wo:AjaxObserveField action="$intervalChanged">
+				<h3>Sekúndur milli eldinga (lágm. – hám.)</h3>
+				<p>
+					<wo:LField value="$minSeconds" style="color: yellow" />
+					<wo:LField value="$maxSeconds" style="color: orange" />
+				</p>
+			</wo:AjaxObserveField>
+		</wo:form>
+		<wo:AjaxUpdateLink action="$strike">⚡</wo:AjaxUpdateLink>
+		<wo:link action="$toggleStorm"><wo:str value="$stormLabel" /></wo:link>
 	</body>
 </html>
